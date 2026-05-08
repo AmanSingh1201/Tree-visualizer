@@ -161,6 +161,7 @@ const CustomNode = memo(({ data, selected }) => {
             fontFamily: '"DM Mono", monospace',
             fontWeight: 'bold',
           }}
+          className={isCollapsed ? 'toggle-collapsed' : ''}
         >
           {isCollapsed ? '+' : '−'}
         </button>
