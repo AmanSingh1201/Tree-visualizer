@@ -1,187 +1,207 @@
 # 🌳 Tree Visualizer — Infollion Frontend Task 4
 
-A production-ready interactive tree structure renderer built as part of the **Infollion Software Developer Intern Assignment**.
+An interactive hierarchical tree visualization system built using **React + Vite + Tailwind CSS + React Flow**.
 
-🔗 **Live Demo:** [tree-visualizer-e5hr-c4kqz9pqm-amansingh1201s-projects.vercel.app](https://tree-visualizer-e5hr-c4kqz9pqm-amansingh1201s-projects.vercel.app)
-
----
-
-## 📌 Task Overview
-
-The goal was to design a visual tree-structure renderer that:
-- Displays hierarchical data with clean spacing
-- Centers parent nodes above their children
-- Supports expand/collapse of subtrees
-- Recalculates layout dynamically after any interaction
+This project was developed as part of the **Infollion Software Developer Intern Assignment**, focusing on recursive layout computation, dynamic node positioning, and interactive tree rendering.
 
 ---
 
-## ✨ Features Implemented
+## 🔗 Live Demo
 
-### Core Requirements
-| Requirement | Status |
-|---|---|
-| Proper tree layout with calculated sibling spacing | ✅ |
-| Parent node centered above its entire group of children | ✅ |
-| Edges connecting parent and child nodes | ✅ |
-| Expand / Collapse for any node with children | ✅ |
-| Layout recalculates automatically after expand/collapse | ✅ |
-| Tree depth 3–4 levels | ✅ |
-| Fully client-side, no backend | ✅ |
+**Deployment:**
+https://tree-visualizer-e5hr-c4kqz9pqm-amansingh1201s-projects.vercel.app
 
-### Bonus Challenges
-| Bonus Feature | Status |
-|---|---|
-| Hover highlighting | ✅ |
-| Node selection with styled info panel | ✅ |
-| Node metadata display | ✅ |
-| Search + auto-pan to matching node | ✅ |
-| Auto-fit / zoom for large trees | ✅ |
-| MiniMap for navigation | ✅ |
-| Depth-based colour coding | ✅ |
+**GitHub Repository:**
+https://github.com/AmanSingh1201/Tree-visualizer
 
 ---
 
-## 🧠 How It Works — Layout Algorithm
+# 📌 Task Objective
 
-The core challenge was building a layout engine that prevents node overlap and always centers parents above children.
+The goal of this assignment was to design a visual tree renderer capable of:
 
-I implemented a **recursive post-order traversal** algorithm in `src/utils/layoutTree.js`:
+* Displaying hierarchical data with clean spacing
+* Centering parent nodes above their children
+* Preventing node overlap
+* Supporting expand/collapse interactions
+* Dynamically recalculating layout after interactions
 
+---
+
+# ✨ Features Implemented
+
+## Core Requirements
+
+| Requirement                           | Status |
+| ------------------------------------- | ------ |
+| Recursive tree layout engine          | ✅      |
+| Parent centered above children        | ✅      |
+| Automatic sibling spacing             | ✅      |
+| Expand / Collapse nodes               | ✅      |
+| Dynamic layout recalculation          | ✅      |
+| React Flow edge rendering             | ✅      |
+| Multi-level tree support (3–6 levels) | ✅      |
+| Fully frontend/client-side            | ✅      |
+
+---
+
+## Additional Features
+
+| Feature                  | Status |
+| ------------------------ | ------ |
+| Hover highlighting       | ✅      |
+| Node selection panel     | ✅      |
+| Search + auto-focus      | ✅      |
+| MiniMap navigation       | ✅      |
+| Zoom / Pan controls      | ✅      |
+| Depth-based color coding | ✅      |
+| Responsive interactions  | ✅      |
+| Metadata display         | ✅      |
+
+---
+
+# 🧠 Layout Algorithm
+
+The core challenge was implementing a layout engine that dynamically positions nodes while maintaining proper hierarchy alignment.
+
+The solution uses a **recursive post-order traversal algorithm** implemented in:
+
+```text id="t7cl9z"
+src/utils/layoutTree.js
 ```
-Step 1: Visit children BEFORE the parent (post-order)
-Step 2: Leaf nodes get sequential x positions from a shared counter
-Step 3: Internal nodes center above their children:
-        parentX = (firstChildX + lastChildX) / 2
-Step 4: Depth controls vertical position:
-        y = depth × 130px
+
+### Layout Strategy
+
+```text id="x4rxn9"
+1. Process child nodes first (post-order traversal)
+2. Assign sequential x positions to leaf nodes
+3. Calculate parent position using child boundaries
+
+   parentX = (firstChildX + lastChildX) / 2
+
+4. Vertical spacing determined by tree depth
 ```
 
-This guarantees:
-- **No overlapping** — the counter always moves right
-- **Perfect centering** — parent always sits above the midpoint of its subtree
-- **Dynamic recalculation** — collapse removes nodes from the counter, everything shifts
+### Why This Works
+
+* Prevents node overlap
+* Keeps sibling spacing balanced
+* Ensures parents remain centered above subtrees
+* Automatically recalculates layout after collapse/expand operations
 
 ---
 
-## 🛠 Tech Stack
+# ⚙️ Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| React 18 | UI library |
-| Vite 5 | Build tool & dev server |
-| Tailwind CSS 3 | Utility-first styling |
-| React Flow 11 | Graph/tree rendering engine |
-| DM Mono + IBM Plex Sans | Typography |
+| Technology              | Purpose                 |
+| ----------------------- | ----------------------- |
+| React 18                | UI framework            |
+| Vite 5                  | Build tool & dev server |
+| Tailwind CSS            | Styling                 |
+| React Flow              | Graph rendering engine  |
+| Lucide React            | Icons                   |
+| IBM Plex Sans + DM Mono | Typography              |
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
-```
+```bash id="x7o5x5"
 tree-visualizer/
-├── index.html
+├── src/
+│   ├── components/
+│   │   ├── CustomNode.jsx
+│   │   └── TreeFlow.jsx
+│   │
+│   ├── utils/
+│   │   └── layoutTree.js
+│   │
+│   ├── data/
+│   │   └── treeData.js
+│   │
+│   ├── styles/
+│   │   └── index.css
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
 ├── package.json
 ├── vite.config.js
 ├── tailwind.config.js
 ├── vercel.json
-└── src/
-    ├── main.jsx                  # Entry point
-    ├── App.jsx                   # Root component + header
-    ├── components/
-    │   ├── CustomNode.jsx        # React Flow custom node with toggle button
-    │   └── TreeFlow.jsx          # Main canvas, state, search logic
-    ├── utils/
-    │   └── layoutTree.js         # Recursive layout engine (core algorithm)
-    ├── data/
-    │   └── treeData.js           # Sample hierarchical tree data
-    └── styles/
-        └── index.css             # Global styles + Tailwind
+└── README.md
 ```
 
 ---
 
-## 🚀 Setup & Run Locally
+# 🚀 Running Locally
 
-### Prerequisites
-- Node.js v18 or higher → [nodejs.org](https://nodejs.org)
-- npm v9 or higher
+## Prerequisites
 
-### Steps
+* Node.js v18+
+* npm v9+
 
-```bash
-# 1. Clone the repository
+---
+
+## Installation
+
+```bash id="3w2d10"
+# Clone repository
 git clone https://github.com/AmanSingh1201/Tree-visualizer.git
 
-# 2. Navigate into the project
+# Navigate into project
 cd Tree-visualizer
 
-# 3. Install dependencies
+# Install dependencies
 npm install
+```
 
-# 4. Start development server
+---
+
+## Start Development Server
+
+```bash id="s7bycq"
 npm run dev
 ```
 
-Open your browser at **http://localhost:5173**
+Application runs at:
 
-### Build for production
+```text id="psuzjx"
+http://localhost:5173
+```
 
-```bash
+---
+
+## Production Build
+
+```bash id="duzw84"
 npm run build
 npm run preview
 ```
 
 ---
 
-## 🖱️ How to Use
+# 🖱️ User Interactions
 
-| Action | How to do it |
-|---|---|
-| **Expand a node** | Click the **+** button below any node |
-| **Collapse a node** | Click the **−** button below any node |
-| **Select a node** | Click on the node card — info panel opens on right |
-| **Search** | Type a node name in the search bar → click **Find** |
-| **Pan the canvas** | Click and drag on the background |
-| **Zoom in/out** | Scroll wheel or use the controls (bottom left) |
-| **Fit all nodes** | Click the fit-view icon in the controls panel |
-
----
-
-## 📸 Preview
-
-```
-Root
-├── Module A
-│   ├── Component A1
-│   │   ├── Service A1a
-│   │   └── Service A1b
-│   └── Component A2
-│       └── Util A2a
-├── Module B
-│   ├── Component B1
-│   │   ├── Service B1a
-│   │   ├── Service B1b
-│   │   └── Service B1c
-│   └── Component B2
-│       ├── Util B2a
-│       └── Util B2b
-└── Module C
-    ├── Component C1
-    │   ├── Step C1a
-    │   └── Step C1b
-    └── Component C2
-        ├── Step C2a
-        └── Step C2b
-```
+| Action                 | Interaction            |
+| ---------------------- | ---------------------- |
+| Expand / Collapse node | Click the +/- toggle   |
+| Select node            | Click node card        |
+| Search node            | Use search input       |
+| Zoom                   | Mouse wheel / controls |
+| Pan canvas             | Drag background        |
+| Reset viewport         | Use fit-view control   |
 
 ---
 
-## 🌐 Deployment
+# 🌐 Deployment
 
-Deployed on **Vercel** with automatic CI/CD — every push to `main` triggers a redeploy.
+The application is deployed on **Vercel** with automatic CI/CD integration.
 
-**Live URL:** https://tree-visualizer-e5hr-c4kqz9pqm-amansingh1201s-projects.vercel.app
+Every push to the `main` branch triggers automatic redeployment.
+
+**Live URL:**
+https://tree-visualizer-e5hr-c4kqz9pqm-amansingh1201s-projects.vercel.app
 
 ---
 
