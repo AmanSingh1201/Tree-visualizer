@@ -204,7 +204,7 @@ https://tree-visualizer-e5hr-c4kqz9pqm-amansingh1201s-projects.vercel.app
 
 # 👨‍💻 Author
 
-**Aman Singh**
+**Aman**
 IIT Kharagpur — Computer Science and Data Processing
 Roll No: 25MA60R31
 
