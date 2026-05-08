@@ -16,6 +16,16 @@ https://github.com/AmanSingh1201/Tree-visualizer
 
 ---
 
+# ⚡ Tech Stack
+
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-06B6D4?logo=tailwindcss)
+![ReactFlow](https://img.shields.io/badge/ReactFlow-11-FF0072)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript)
+
+---
+
 # 📌 Task Objective
 
 The goal of this assignment was to design a visual tree renderer capable of:
@@ -66,13 +76,13 @@ The core challenge was implementing a layout engine that dynamically positions n
 
 The solution uses a **recursive post-order traversal algorithm** implemented in:
 
-```text id="t7cl9z"
+```text id="4hdy22"
 src/utils/layoutTree.js
 ```
 
 ### Layout Strategy
 
-```text id="x4rxn9"
+```text id="zbuzx9"
 1. Process child nodes first (post-order traversal)
 2. Assign sequential x positions to leaf nodes
 3. Calculate parent position using child boundaries
@@ -91,22 +101,9 @@ src/utils/layoutTree.js
 
 ---
 
-# ⚙️ Tech Stack
-
-| Technology              | Purpose                 |
-| ----------------------- | ----------------------- |
-| React 18                | UI framework            |
-| Vite 5                  | Build tool & dev server |
-| Tailwind CSS            | Styling                 |
-| React Flow              | Graph rendering engine  |
-| Lucide React            | Icons                   |
-| IBM Plex Sans + DM Mono | Typography              |
-
----
-
 # 📁 Project Structure
 
-```bash id="x7o5x5"
+```bash id="o7o1em"
 tree-visualizer/
 ├── src/
 │   ├── components/
@@ -145,7 +142,7 @@ tree-visualizer/
 
 ## Installation
 
-```bash id="3w2d10"
+```bash id="u3hcxm"
 # Clone repository
 git clone https://github.com/AmanSingh1201/Tree-visualizer.git
 
@@ -160,13 +157,13 @@ npm install
 
 ## Start Development Server
 
-```bash id="s7bycq"
+```bash id="18zqib"
 npm run dev
 ```
 
 Application runs at:
 
-```text id="psuzjx"
+```text id="7txe7x"
 http://localhost:5173
 ```
 
@@ -174,7 +171,7 @@ http://localhost:5173
 
 ## Production Build
 
-```bash id="duzw84"
+```bash id="y1u7fx"
 npm run build
 npm run preview
 ```
@@ -205,9 +202,10 @@ https://tree-visualizer-e5hr-c4kqz9pqm-amansingh1201s-projects.vercel.app
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
-**Aman**  
-IIT kharagpur — Computer Science and Data Processing 
+**Aman Singh**
+IIT Kharagpur — Computer Science and Data Processing
+Roll No: 25MA60R31
 
-GitHub: [@AmanSingh1201](https://github.com/AmanSingh1201)
+GitHub: @AmanSingh1201
