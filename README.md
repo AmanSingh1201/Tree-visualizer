@@ -188,5 +188,5 @@ Deployed on **Vercel** with automatic CI/CD — every push to `main` triggers a 
 ## 👨‍💻 Author
 
 **Aman Singh**  
-Software Developer Intern Applicant — Infollion  
+IIT kharagpur — Computer Science and Data Processing 
 GitHub: [@AmanSingh1201](https://github.com/AmanSingh1201)
