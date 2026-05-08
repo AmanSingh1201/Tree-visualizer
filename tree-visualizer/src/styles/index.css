@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Reset & Base ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0d1117;
+}
+
+/* ── React Flow overrides ──────────────────────────────────────────── */
+
+/* Controls panel styling */
+.react-flow__controls {
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5) !important;
+}
+
+.react-flow__controls-button {
+  background: #161b22 !important;
+  border-bottom: 1px solid #30363d !important;
+  color: #8b949e !important;
+  transition: background 0.15s, color 0.15s;
+}
+
+.react-flow__controls-button:hover {
+  background: #21262d !important;
+  color: #e6edf3 !important;
+}
+
+.react-flow__controls-button svg {
+  fill: currentColor;
+}
+
+/* Edges */
+.react-flow__edge-path {
+  stroke: #30363d;
+  stroke-width: 2;
+  transition: stroke 0.2s;
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: #58a6ff;
+}
+
+/* Attribution */
+.react-flow__attribution {
+  display: none !important;
+}
+
+/* MiniMap */
+.react-flow__minimap {
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5) !important;
+}
+
+/* ── Smooth expand/collapse transition ─────────────────────────────── */
+.react-flow__node {
+  transition: opacity 0.25s ease, transform 0.3s ease;
+}
+
+/* ── Scrollbar styling ─────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
