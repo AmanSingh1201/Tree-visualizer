@@ -207,6 +207,7 @@ https://tree-visualizer-e5hr-c4kqz9pqm-amansingh1201s-projects.vercel.app
 
 ## 👨‍💻 Author
 
-**Aman Singh**  
+**Aman**  
 IIT kharagpur — Computer Science and Data Processing 
+
 GitHub: [@AmanSingh1201](https://github.com/AmanSingh1201)
